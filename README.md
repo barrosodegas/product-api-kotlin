@@ -1,7 +1,14 @@
 
-# CRUD API Kotlin with Spring Boot example.
+# CRUD API Kotlin with Spring Boot and GraphQL example.
 
-### Endpointes:
+## GraphQL API:
+
+[ ] Querys and Mutation by GUI:
+
+- http://localhost:8180/qui
+
+
+### REST API:
 
 [ ] GET - Find product(s)
 

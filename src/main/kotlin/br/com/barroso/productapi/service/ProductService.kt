@@ -5,15 +5,20 @@ import br.com.barroso.productapi.exception.ProductNotFoundException
 import br.com.barroso.productapi.model.Inventory
 import br.com.barroso.productapi.model.Product
 import br.com.barroso.productapi.repository.ProductRepository
+import io.leangen.graphql.annotations.GraphQLMutation
+import io.leangen.graphql.annotations.GraphQLQuery
+import io.leangen.graphql.spqr.spring.annotations.GraphQLApi
 import mu.KotlinLogging
 import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
+@GraphQLApi
 class ProductService(val repository: ProductRepository) {
 
     private val logger = KotlinLogging.logger { }
 
+    @GraphQLQuery(name = "productById")
     fun findProductById(productId: Int): Product {
 
         logger.info("Searching the product with the ID: $productId")
@@ -27,6 +32,7 @@ class ProductService(val repository: ProductRepository) {
         return opEntityBase.get()
     }
 
+    @GraphQLQuery(name = "productBySku")
     fun findProductBySku(sku: Int): Product {
 
         logger.info("Searching the product with the SKU: $sku")
@@ -40,10 +46,12 @@ class ProductService(val repository: ProductRepository) {
         return opEntityBase.get()
     }
 
+    @GraphQLQuery(name = "products")
     fun findAll(): List<Product> {
         return this.repository.findAll()
     }
 
+    @GraphQLMutation(name = "createProduct")
     fun createProduct(product: Product): Product {
 
         val opEntityBase = this.repository.findBySku(product.sku)
@@ -62,6 +70,7 @@ class ProductService(val repository: ProductRepository) {
         return product
     }
 
+    @GraphQLMutation(name = "updateProduct")
     fun updateProduct(product: Product): Boolean {
 
         val opEntityBase = this.repository.findBySku(product.sku)
@@ -82,6 +91,7 @@ class ProductService(val repository: ProductRepository) {
         return true
     }
 
+    @GraphQLMutation(name = "removeProductById")
     fun removeProductById(productId: Int): Boolean {
 
         val opEntityBase = this.repository.findById(productId)
@@ -100,6 +110,7 @@ class ProductService(val repository: ProductRepository) {
         return true
     }
 
+    @GraphQLMutation(name = "removeProductBySku")
     fun removeProductBySku(sku: Int): Boolean {
 
         val opEntityBase = this.repository.findBySku(sku)

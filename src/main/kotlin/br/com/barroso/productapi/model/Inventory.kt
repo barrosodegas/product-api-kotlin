@@ -1,12 +1,10 @@
 package br.com.barroso.productapi.model
 
-import lombok.ToString
 import java.io.Serializable
 import javax.persistence.*
 import javax.validation.Valid
 import javax.validation.constraints.NotEmpty
 
-@ToString
 @Entity
 data class Inventory(
 

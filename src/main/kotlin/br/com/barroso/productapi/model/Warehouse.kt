@@ -1,6 +1,5 @@
 package br.com.barroso.productapi.model
 
-import lombok.ToString
 import java.io.Serializable
 import javax.persistence.*
 import javax.validation.constraints.NotEmpty
@@ -12,7 +11,6 @@ import javax.validation.constraints.NotNull
  * @author Andre Barroso
  *
  */
-@ToString
 @Entity
 data class Warehouse(
 

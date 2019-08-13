@@ -1,6 +1,11 @@
 server:
   port: 8180
 
+graphql:
+  spqr:
+    gui:
+      enabled: true
+
 # Data base
 spring:
   h2:

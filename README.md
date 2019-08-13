@@ -5,10 +5,20 @@
 
 [ ] Querys and Mutation by GUI:
 
-- http://localhost:8180/qui
+- http://localhost:8180/gui
+
+- query { productById(productId: 1) { name } } 
+- query { productBySku(sku: 1) { name } } 
+- query { products { productId name } }
+- query { products { productId name inventory { warehouses { locality quantity } } } }
+
+- mutation { createProduct(product: { properties... } ) { name } } 
+- mutation { updateProduct(product: { properties... } ) {} } 
+- mutation { removeProductById(productId: 1 ) {} } 
+- mutation { removeProductBySku(sku: 1 ) {} } 
 
 
-### REST API:
+## REST API:
 
 [ ] GET - Find product(s)
 

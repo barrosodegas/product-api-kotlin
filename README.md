@@ -1,7 +1,5 @@
 
-# CRUD API Kotlin with Spring Boot and Lombok example.
-
-## Importante install Lombok plugin in your ide.
+# CRUD API Kotlin with Spring Boot example.
 
 ### Endpointes:
 
